@@ -1,0 +1,72 @@
+.notify {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 100%;
+        max-width: 200px;
+        min-height: 50px;
+        padding: 5px 10px 10px 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        background-color: #062221;
+        border-radius: 3px;
+        transform: translateX(-20px);
+        animation: newNotify 0.5s forwards;
+
+        &.green {
+            border-left: 3px solid #3BA55D;
+        }
+
+        &.red {
+            border-left: 3px solid crimson;
+        }
+
+        p {
+            user-select: none;
+            color: rgb(207, 207, 207);
+            font-size: 14px;
+        }
+
+        button {
+            user-select: none;
+            cursor: pointer;
+            outline: none;
+            color: rgb(207, 207, 207);
+            padding-left: 10px;
+            border: none;
+            font-size: 20px;
+            background-color: transparent;
+            transition: color 0.2s;
+            
+            &:hover {
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+@keyframes newNotify {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes closeNotify {
+    0% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/home.css">
+    <title>Painel de Controle</title>
+</head>
+
+<body>
+    <main>
+        <div class="sidebar">
+            <div class="content">
+                <div class="title">Painel de Controle</div>
+                <div class="line"></div>
+                <ul>
+                    <li class="sidebar-button active" data-box="account">Minha Conta</li>
+                </ul>
+                <div class="line"></div>
+                <ul>
+                    <li class="sidebar-button" data-box="support">Chat de Suporte</li>
+                </ul>
+                <div class="line"></div>
+                <button class="account-exist">Sair</button>
+            </div>
+        </div>
+        <div class="dashboard" id="box-account" style="display: block;">
+            <div class="content">
+                <div class="profile">
+                    <div class="avatar"></div>
+                    <div class="infos">
+                        <div class="username">TiaGoiNsaNy</div>
+                        <div class="description">Sou um desenvolvedor web, e atualmente trabalho no ramo da programação
+                            a quase 2 anos. Esse é uma biografia simples para deixar o texto grande.</div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="data">
+                    <div class="name">Endereço de E-mail</div>
+                    <div class="value">tiagoinsany@gmail.com</div>
+                    <div class="name">Senha</div>
+                    <div class="value" id="account-box-password" value="10"></div>
+                    <div class="name">Telefone</div>
+                    <div class="value">+55 (93)98412-4587</div>
+                </div>
+                <div class="buttons-account">
+                    <button class="btn-change-bio">Editar Biografia</button>
+                </div>
+                <div class="edit-bio">
+                    <textarea class="bio-textarea" id="bio-textarea" placeholder="Escreva sua Biografia"></textarea>
+                    <button class="btn-save-bio" id="btn-save-bio">Salvar</button>
+                </div>
+                <div class="line"></div>
+                <div class="data">
+                    <div class="name">Nome Completo</div>
+                    <div class="value">Tiago Ryan da Silva P. A.</div>
+                    <div class="name">CPF</div>
+                    <div class="value">000.000.000-00</div>
+                    <div class="name">Data de Nascimento</div>
+                    <div class="value">18/08/2005</div>
+                    <div class="name">Cidade - Estado</div>
+                    <div class="value">Prainha - PA</div>
+                </div>
+                <div class="line"></div>
+                <div class="data">
+                    <div class="name">Cartão de Crédito</div>
+                    <div class="value">0000.0000.0000.000</div>
+                    <div class="inline">
+                        <div class="item">
+                            <div class="name">Data de Validade</div>
+                            <div class="value">07/25</div>
+                        </div>
+                        <div class="item">
+                            <div class="name">CVV</div>
+                            <div class="value">000</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="buttons-account-finish">
+                    <button class="btn-delete-account" id="btn-delete-account">Excluir Conta</button>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard" id="box-support">
+            <div class="content">
+                <div class="box">
+                    <div class="message-support">
+                        <div class="avatar"></div>
+                        <div class="context">
+                            <div class="username">Equipe de Suporte</div>
+                            <div class="msg">Esse é o Chat de Suporte, onde você poderá enviar uma mensagem para os os membros de suporte para tirar suas dúvidas!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-text">
+                    <textarea maxlength="200" id="textarea-content-msg" placeholder="Escreve uma mensagem"></textarea>
+                    <button id="btn-send-message">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./scripts/listDashboard.js"></script>
+    <script src="./scripts/profile.js"></script>
+    <script src="./scripts/deleteAccount.js"></script>
+    <script src="./scripts/sendMessageChat.js"></script>
+</body>
+
+</html>

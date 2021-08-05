@@ -1,0 +1,179 @@
+.profile {
+    display: flex;
+    padding: 10px;
+
+    .avatar {
+        width: 60px;
+        height: 60px;
+        background-image: url("../assets/avatar.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px;
+        border: 1px solid #062221;
+    }
+
+    .infos {
+        margin-left: 15px;
+
+        .username {
+            user-select: none;
+            color: #E0CDCD;
+        }
+
+        .description {
+            max-width: 230px;
+            user-select: none;
+            margin-top: 5px;
+            color: gray;
+            font-size: 10px;
+        }
+    }
+}
+
+.buttons-account, .buttons-account-finish {
+    padding: 5px 10px 10px 10px;
+
+    .btn-change-password, .btn-change-bio {
+        cursor: pointer;
+        user-select: none;
+        background-color: #3BA55D;
+        border: none;
+        border-radius: 2px;
+        outline: none;
+        padding: 5px 7px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #339151;
+        }
+
+        &:active {
+            background-color: #2a7943;
+        }
+    }
+
+    .btn-delete-account {
+        cursor: pointer;
+        user-select: none;
+        background-color: crimson;
+        border: none;
+        border-radius: 2px;
+        outline: none;
+        padding: 5px 7px;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: #be1134;
+        }
+    }
+}
+
+.edit-bio {
+    height: 100%;
+    max-height: 0px;
+    padding: 0px 10px;
+    overflow: hidden;
+    transition: max-height 0.3s;
+
+    .bio-textarea {
+        margin-top: 5px;
+        resize: none;
+        width: 100%;
+        height: 80px;
+        cursor: pointer;
+        outline: none;
+        background-color: #062221;
+        border: 1px solid #051a19;
+        border-radius: 3px;
+        padding: 10px;
+        color: #cfcfcf;
+        font-size: 14px;
+        font-family: monospace;
+    }
+
+    .btn-save-bio {
+        margin-bottom: 5px;
+        width: 100%;
+        margin-top: 10px;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        padding: 5px 7px;
+        background-color: #3BA55D;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        border-radius: 3px;
+
+        &:hover {
+            background-color: #339151;
+        }
+
+        &:active {
+            background-color: #2a7943;
+        }
+    }
+}
+.buttons-account-finish {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.line {
+    margin-top: 10px;
+    width: 100%;
+    height: 1px;
+    background-color: #062221;
+}
+
+.data {
+    padding: 10px;
+    margin-top: 5px;
+
+    .name {
+        user-select: none;
+        margin-left: 5px;
+        font-weight: bold;
+        color: #E0CDCD;
+        font-size: 14px;
+    }
+
+    .value {
+        padding: 7px;
+        margin: 5px 0px;
+        width: 100%;
+        background-color: #062221;
+        border-radius: 3px;
+        color: gray;
+        user-select: none;
+        font-size: 14px;
+        font-family: monospace;
+    }
+
+    .inline {
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+            user-select: none;
+            width: 100%;
+            margin-left: 5px;
+            font-weight: bold;
+            color: #E0CDCD;
+            font-size: 14px;
+        }
+
+        .value {
+            padding: 7px;
+            margin: 5px 0px;
+            width: 100%;
+            background-color: #062221;
+            border-radius: 3px;
+            color: gray;
+            user-select: none;
+            font-size: 14px;
+            font-family: monospace;
+        }
+    }
+}

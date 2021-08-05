@@ -1,0 +1,882 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  background-color: #062221;
+  width: 5px;
+  border-radius: 5px;
+}
+
+html::-webkit-scrollbar-button {
+  background-color: #062221;
+  border-radius: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #051a19;
+  border-radius: 3px;
+}
+
+body {
+  background-color: #093332;
+}
+
+.notify {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.notify .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  width: 100%;
+  max-width: 200px;
+  min-height: 50px;
+  padding: 5px 10px 10px 10px;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  background-color: #062221;
+  border-radius: 3px;
+  -webkit-transform: translateX(-20px);
+          transform: translateX(-20px);
+  -webkit-animation: newNotify 0.5s forwards;
+          animation: newNotify 0.5s forwards;
+}
+
+.notify .content.green {
+  border-left: 3px solid #3BA55D;
+}
+
+.notify .content.red {
+  border-left: 3px solid crimson;
+}
+
+.notify .content p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #cfcfcf;
+  font-size: 14px;
+}
+
+.notify .content button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  outline: none;
+  color: #cfcfcf;
+  padding-left: 10px;
+  border: none;
+  font-size: 20px;
+  background-color: transparent;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+.notify .content button:hover {
+  color: #ffffff;
+}
+
+@-webkit-keyframes newNotify {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes newNotify {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@-webkit-keyframes closeNotify {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes closeNotify {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+main {
+  margin: 10vh 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 150px 350px auto;
+      grid-template-columns: auto 150px 350px auto;
+      grid-template-areas: ". sidebar dashboard .";
+  grid-column-gap: 10px;
+}
+
+main .sidebar {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: sidebar;
+}
+
+main .sidebar .content {
+  background-color: #082e2d;
+  padding: 10px;
+  border: 1px solid #062221;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+main .sidebar .content:not(:first-child) {
+  margin-top: 10px;
+}
+
+main .sidebar .content .title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #e0cdcd;
+  font-family: "Bebas Neue";
+}
+
+main .sidebar .content .line {
+  margin: 10px 0px;
+  width: 100%;
+  height: 1px;
+  background-color: #062221;
+}
+
+main .sidebar .content ul {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+main .sidebar .content ul::-webkit-scrollbar {
+  background-color: #062221;
+  width: 5px;
+  border-radius: 5px;
+}
+
+main .sidebar .content ul::-webkit-scrollbar-button {
+  background-color: #062221;
+  border-radius: 5px;
+}
+
+main .sidebar .content ul::-webkit-scrollbar-thumb {
+  background-color: #051a19;
+  border-radius: 3px;
+}
+
+main .sidebar .content ul li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  color: gray;
+  font-size: 12px;
+  line-height: 30px;
+  padding: 0px 7px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+main .sidebar .content ul li:hover {
+  background-color: #062221;
+  border-radius: 3px;
+}
+
+main .sidebar .content ul li.active {
+  background-color: #062221;
+  border-radius: 3px;
+  color: #cfcfcf;
+}
+
+main .sidebar .content .account-exist {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  color: crimson;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 7px;
+  -webkit-transition: color 0.2s, background-color 0.2s;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+main .sidebar .content .account-exist:hover {
+  background-color: crimson;
+  color: #082e2d;
+}
+
+main .sidebar .content .account-exist:active {
+  background-color: #be1134;
+  -webkit-transition: background-color 0s;
+  transition: background-color 0s;
+}
+
+main .dashboard {
+  display: none;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: dashboard;
+}
+
+main .dashboard .content {
+  padding: 10px;
+  min-height: 500px;
+  border: 1px solid #062221;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+main .dashboard .content .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+main .dashboard .content .profile .avatar {
+  width: 60px;
+  height: 60px;
+  background-image: url("../assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  border: 1px solid #062221;
+}
+
+main .dashboard .content .profile .infos {
+  margin-left: 15px;
+}
+
+main .dashboard .content .profile .infos .username {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #E0CDCD;
+}
+
+main .dashboard .content .profile .infos .description {
+  max-width: 230px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-top: 5px;
+  color: gray;
+  font-size: 10px;
+}
+
+main .dashboard .content .buttons-account, main .dashboard .content .buttons-account-finish {
+  padding: 5px 10px 10px 10px;
+}
+
+main .dashboard .content .buttons-account .btn-change-password, main .dashboard .content .buttons-account .btn-change-bio, main .dashboard .content .buttons-account-finish .btn-change-password, main .dashboard .content .buttons-account-finish .btn-change-bio {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #3BA55D;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  padding: 5px 7px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+main .dashboard .content .buttons-account .btn-change-password:hover, main .dashboard .content .buttons-account .btn-change-bio:hover, main .dashboard .content .buttons-account-finish .btn-change-password:hover, main .dashboard .content .buttons-account-finish .btn-change-bio:hover {
+  background-color: #339151;
+}
+
+main .dashboard .content .buttons-account .btn-change-password:active, main .dashboard .content .buttons-account .btn-change-bio:active, main .dashboard .content .buttons-account-finish .btn-change-password:active, main .dashboard .content .buttons-account-finish .btn-change-bio:active {
+  background-color: #2a7943;
+}
+
+main .dashboard .content .buttons-account .btn-delete-account, main .dashboard .content .buttons-account-finish .btn-delete-account {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: crimson;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  padding: 5px 7px;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+main .dashboard .content .buttons-account .btn-delete-account:hover, main .dashboard .content .buttons-account-finish .btn-delete-account:hover {
+  background-color: #be1134;
+}
+
+main .dashboard .content .edit-bio {
+  height: 100%;
+  max-height: 0px;
+  padding: 0px 10px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+}
+
+main .dashboard .content .edit-bio .bio-textarea {
+  margin-top: 5px;
+  resize: none;
+  width: 100%;
+  height: 80px;
+  cursor: pointer;
+  outline: none;
+  background-color: #062221;
+  border: 1px solid #051a19;
+  border-radius: 3px;
+  padding: 10px;
+  color: #cfcfcf;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+main .dashboard .content .edit-bio .btn-save-bio {
+  margin-bottom: 5px;
+  width: 100%;
+  margin-top: 10px;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 5px 7px;
+  background-color: #3BA55D;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+}
+
+main .dashboard .content .edit-bio .btn-save-bio:hover {
+  background-color: #339151;
+}
+
+main .dashboard .content .edit-bio .btn-save-bio:active {
+  background-color: #2a7943;
+}
+
+main .dashboard .content .buttons-account-finish {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .dashboard .content .line {
+  margin-top: 10px;
+  width: 100%;
+  height: 1px;
+  background-color: #062221;
+}
+
+main .dashboard .content .data {
+  padding: 10px;
+  margin-top: 5px;
+}
+
+main .dashboard .content .data .name {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin-left: 5px;
+  font-weight: bold;
+  color: #E0CDCD;
+  font-size: 14px;
+}
+
+main .dashboard .content .data .value {
+  padding: 7px;
+  margin: 5px 0px;
+  width: 100%;
+  background-color: #062221;
+  border-radius: 3px;
+  color: gray;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+main .dashboard .content .data .inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .dashboard .content .data .inline .name {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  margin-left: 5px;
+  font-weight: bold;
+  color: #E0CDCD;
+  font-size: 14px;
+}
+
+main .dashboard .content .data .inline .value {
+  padding: 7px;
+  margin: 5px 0px;
+  width: 100%;
+  background-color: #062221;
+  border-radius: 3px;
+  color: gray;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+main .dashboard .content .box {
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+  border: 1px solid #062221;
+  border-radius: 3px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+main .dashboard .content .box::-webkit-scrollbar {
+  display: none;
+}
+
+main .dashboard .content .box .message-support {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+main .dashboard .content .box .message-support .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url("../assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+main .dashboard .content .box .message-support .context {
+  width: 100%;
+  max-width: 200px;
+  margin: 0px 5px 0px 5px;
+  padding: 5px 7px;
+  background-color: #062221;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+main .dashboard .content .box .message-support .context .username {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 12px;
+  color: gray;
+}
+
+main .dashboard .content .box .message-support .context .username:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+main .dashboard .content .box .message-support .context .msg {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #cfcfcf;
+}
+
+main .dashboard .content .box .message-support:not(:first-child) {
+  margin-top: 10px;
+}
+
+main .dashboard .content .box .message-client {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  width: 100%;
+}
+
+main .dashboard .content .box .message-client .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url("../assets/avatar.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+main .dashboard .content .box .message-client .context {
+  width: 100%;
+  max-width: 200px;
+  margin: 0px 5px 0px 5px;
+  padding: 5px 7px;
+  background-color: #177add;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+main .dashboard .content .box .message-client .context .username {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+main .dashboard .content .box .message-client .context .username:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+main .dashboard .content .box .message-client .context .msg {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+main .dashboard .content .box .message-client:not(:first-child) {
+  margin-top: 10px;
+}
+
+main .dashboard .content .input-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  width: 100%;
+}
+
+main .dashboard .content .input-text textarea {
+  margin: 10px 0px;
+  padding: 10px;
+  outline: none;
+  resize: none;
+  width: 900px;
+  height: 80px;
+  border: 1px solid #051a19;
+  border-radius: 3px;
+  background-color: #062221;
+  color: #cfcfcf;
+}
+
+main .dashboard .content .input-text textarea::-webkit-scrollbar {
+  background-color: #062221;
+  width: 5px;
+  border-radius: 5px;
+}
+
+main .dashboard .content .input-text textarea::-webkit-scrollbar-button {
+  background-color: #062221;
+  border-radius: 5px;
+}
+
+main .dashboard .content .input-text textarea::-webkit-scrollbar-thumb {
+  background-color: #051a19;
+  border-radius: 3px;
+}
+
+main .dashboard .content .input-text button {
+  outline: none;
+  margin: 10px 0px 10px 10px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  background-color: #3BA55D;
+  border-radius: 3px;
+}
+
+.deleteAccountBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  -webkit-animation: boxDeleteAccountShadow 0.5s forwards;
+          animation: boxDeleteAccountShadow 0.5s forwards;
+}
+
+.deleteAccountBox .box {
+  margin: 10px;
+  width: 100%;
+  max-width: 450px;
+  background-color: #082e2d;
+  border: 1px solid #062221;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateY(-20px);
+          transform: translateY(-20px);
+  -webkit-animation: boxDeleteAccount 0.5s forwards;
+          animation: boxDeleteAccount 0.5s forwards;
+}
+
+.deleteAccountBox .box .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.deleteAccountBox .box .title p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 7px 10px;
+  font-family: "Bebas Neue";
+}
+
+.deleteAccountBox .box .title button {
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #cfcfcf;
+  font-size: 30px;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.deleteAccountBox .box .title button:hover {
+  color: #ffffff;
+}
+
+.deleteAccountBox .box .line {
+  width: 100%;
+  height: 1px;
+  background-color: #062221;
+}
+
+.deleteAccountBox .box .content {
+  padding: 7px 10px;
+}
+
+.deleteAccountBox .box .content .description {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 12px;
+  color: gray;
+  line-height: 15px;
+}
+
+.deleteAccountBox .box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.deleteAccountBox .box form input[type="password"] {
+  width: 100%;
+  margin: 0px 10px 10px 10px;
+  padding: 5px 7px;
+  background-color: #062221;
+  border: 1px solid #051a19;
+  outline: none;
+}
+
+.deleteAccountBox .box form button[type="submit"] {
+  display: block;
+  margin: 0px 10px 10px 0px;
+  background-color: indianred;
+  border: none;
+  padding: 5px 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.deleteAccountBox .box form button[type="submit"]:hover {
+  background-color: crimson;
+}
+
+@-webkit-keyframes boxDeleteAccountShadow {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes boxDeleteAccountShadow {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@-webkit-keyframes boxDeleteAccountShadowRevert {
+  0% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes boxDeleteAccountShadowRevert {
+  0% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@-webkit-keyframes boxDeleteAccount {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes boxDeleteAccount {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@-webkit-keyframes boxDeleteAccountRevert {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes boxDeleteAccountRevert {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+  }
+}

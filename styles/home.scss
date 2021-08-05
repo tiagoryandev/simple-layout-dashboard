@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+html {
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        background-color: #062221;
+        width: 5px;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-button {
+        background-color: #062221;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #051a19;
+        border-radius: 3px;
+    }
+}
+
+body {
+    background-color: #093332;
+}
+
+@import "./components/notify";
+
+main {
+    margin: 10vh 0;
+    display: grid;
+    grid-template-columns: auto 150px 350px auto;
+    grid-template-areas: ". sidebar dashboard .";
+    grid-column-gap: 10px;
+
+    .sidebar {
+        grid-area: sidebar;
+
+        .content {
+            background-color: #082e2d;
+            padding: 10px;
+            border: 1px solid #062221;
+            border-radius: 3px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+            &:not(:first-child) {
+                margin-top: 10px;
+            }
+
+            .title {
+                user-select: none;
+                color: #e0cdcd;
+                font-family: "Bebas Neue";
+            }
+
+            .line {
+                margin: 10px 0px;
+                width: 100%;
+                height: 1px;
+                background-color: #062221;
+            }
+
+            ul {
+                list-style: none;
+                overflow-y: auto;
+                max-height: 400px;
+
+                &::-webkit-scrollbar {
+                    background-color: #062221;
+                    width: 5px;
+                    border-radius: 5px;
+                }
+
+                &::-webkit-scrollbar-button {
+                    background-color: #062221;
+                    border-radius: 5px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background-color: #051a19;
+                    border-radius: 3px;
+                }
+
+                li {
+                    user-select: none;
+                    cursor: pointer;
+                    color: gray;
+                    font-size: 12px;
+                    line-height: 30px;
+                    padding: 0px 7px;
+                    transition: background-color 0.2s;
+
+                    &:hover {
+                        background-color: #062221;
+                        border-radius: 3px;
+                    }
+
+                    &.active {
+                        background-color: #062221;
+                        border-radius: 3px;
+                        color: #cfcfcf;
+                    }
+                }
+            }
+
+            .account-exist {
+                user-select: none;
+                outline: none;
+                cursor: pointer;
+                width: 100%;
+                background-color: transparent;
+                color: crimson;
+                font-weight: bold;
+                border: none;
+                border-radius: 3px;
+                padding: 5px 7px;
+                transition: color 0.2s, background-color 0.2s;
+
+                &:hover {
+                    background-color: crimson;
+                    color: #082e2d;
+                }
+
+                &:active {
+                    background-color: #be1134;
+                    transition: background-color 0s;
+                }
+            }
+        }
+    }
+
+    .dashboard {
+        display: none;
+        grid-area: dashboard;
+
+        .content {
+            padding: 10px;
+            min-height: 500px;
+            border: 1px solid #062221;
+            border-radius: 3px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+
+            @import "components/account";
+            @import "components/products";
+            @import "components/chat";
+        }
+    }
+}
+
+.deleteAccountBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    animation: boxDeleteAccountShadow 0.5s forwards;
+
+    .box {
+        margin: 10px;
+        width: 100%;
+        max-width: 450px;
+        background-color: #082e2d;
+        border: 1px solid #062221;
+        border-radius: 3px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-20px);
+        animation: boxDeleteAccount 0.5s forwards;
+
+        .title {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            p {
+                user-select: none;
+                padding: 7px 10px;
+                font-family: "Bebas Neue";
+            }
+
+            button {
+                margin-right: 10px;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                color: #cfcfcf;
+                font-size: 30px;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: #062221;
+        }
+
+        .content {
+            padding: 7px 10px;
+
+            .description {
+                user-select: none;
+                font-size: 12px;
+                color: gray;
+                line-height: 15px;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            input[type="password"] {
+                width: 100%;
+                margin: 0px 10px 10px 10px;
+                padding: 5px 7px;
+                background-color: #062221;
+                border: 1px solid #051a19;
+                outline: none;
+            }
+
+            button[type="submit"] {
+                display: block;
+                margin: 0px 10px 10px 0px;
+                background-color: indianred;
+                border: none;
+                padding: 5px 7px;
+                border-radius: 3px;
+                cursor: pointer;
+                outline: none;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: crimson;
+                }
+            }
+        }
+    }
+}
+
+@keyframes boxDeleteAccountShadow {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes boxDeleteAccountShadowRevert {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes boxDeleteAccount {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes boxDeleteAccountRevert {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 0;
+    }
+}
